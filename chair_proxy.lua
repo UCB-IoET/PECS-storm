@@ -9,7 +9,8 @@ HEATER_ATTR = 0x4006
 OCCUPANCY_ATTR = 0x4007
 
 chair_port = 60004
-chair_ip = "2001:0470:4956:0002:0012:6d02:0000:beef"
+-- chair_ip = "2001:0470:4956:0002:0012:6d02:0000:beef"
+chair_ip = "ff02:beef"
 
 nqcl = NQC:new(chair_port)
 
@@ -52,7 +53,7 @@ SVCD.init("chair_proxy", function ()
   storm.os.invokePeriodically(3*storm.os.SECOND, function()
     print "Getting occupancy state"
     local cmd = {occupancy=1}
-    nqcl:sendMessage(cmd, "ff02:1", chair_port, nil, nil, function () 
+    nqcl:sendMessage(cmd, chair_ip, chair_port, nil, nil, function () 
       print "Trying to get occupancy status"
     end, function (payload, address, port)
       print("Received response: ")

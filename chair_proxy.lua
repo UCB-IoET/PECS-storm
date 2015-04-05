@@ -3,10 +3,10 @@ require "svcd"
 NQC = require "nqclient"
 sh = require "stormsh"
 
-SVC_ID = 0x3006
-FAN_ATTR = 0x4005
-HEATER_ATTR = 0x4006
-OCCUPANCY_ATTR = 0x4007
+SVC_ID = 0x3008
+FAN_ATTR = 0x400f
+HEATER_ATTR = 0x4010
+OCCUPANCY_ATTR = 0x4011
 
 chair_port = 60004
 -- chair_ip = "2001:0470:4956:0002:0012:6d02:0000:beef"

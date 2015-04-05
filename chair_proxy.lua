@@ -9,7 +9,7 @@ HEATER_ATTR = 0x4006
 OCCUPANCY_ATTR = 0x4007
 
 chair_port = 60004
-chair_ip = 1
+chair_ip = "2001:0470:4956:0002:0012:6d02:0000:beef"
 
 nqcl = NQC:new(chair_port)
 
@@ -26,10 +26,10 @@ local heater_state_map = {
 }
 
 local send_message = function (cmd)
-  nqcl:sendMessage(cmd, "ff02:1", chair_port, nil, nil, function () 
+  nqcl:sendMessage(cmd, chair_ip, chair_port, nil, nil, function () 
     print("Trying to send")
   end, function (payload, address, port)
-    print("Received response: ")
+    print("Received response")
   end)
 end
 
